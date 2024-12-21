@@ -44,21 +44,21 @@ namespace Practice_Linq_2024
         // Запит 1
         static void Query1(List<FootballGame> games)
         {
-            //Query 1: Вивести всі матчі, які відбулися в Україні у 2012 році.
+            var selectedGames = games
+                .Where(g => g.Country == "Ukraine" && g.Date.Year == 2012)
+                .ToList();
 
-            var selectedGames = games; // Корегуємо запит !!!
-
-
-            // Перевірка
             Console.WriteLine("\n======================== QUERY 1 ========================");
+            foreach (var game in selectedGames)
+            {
+                Console.WriteLine($"{game.Date:dd.MM.yyyy} {game.Home_team} - {game.Away_team}, Score: {game.Home_score} - {game.Away_score}, Country: {game.Country}");
+            }
+        
 
-            // див. приклад як має бути виведено:
+    }
 
-
-        }
-
-        // Запит 2
-        static void Query2(List<FootballGame> games)
+    // Запит 2
+    static void Query2(List<FootballGame> games)
         {
             //Query 2: Вивести Friendly матчі збірної Італії, які вона провела з 2020 року.  
 
